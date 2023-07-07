@@ -16,6 +16,8 @@ namespace Practice_Problem
             nearestNumber.CheckNum(n);
             Reflection reflection = new Reflection();
             reflection.Test();
+            object expected = new NearestNumber();
+            object obj =reflection.CreateObj("Practice_Problem.NearestNumber", "NearestNumber");
         }
         
      

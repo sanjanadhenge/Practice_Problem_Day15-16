@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Practice_Problem
@@ -32,6 +33,30 @@ namespace Practice_Problem
             {
                 Console.WriteLine(constructors.ToString());
             }
+        }
+        public  object CreateObj(string className, string constructorName)
+        {
+            string pattern = @"." + constructorName + "$";
+            Match result = Regex.Match(pattern, constructorName);
+            if (result.Success)
+            {
+                try
+                {
+                    Assembly executing = Assembly.GetExecutingAssembly();
+                    Type type = executing.GetType(className);
+                    return Activator.CreateInstance(type);
+                }
+                catch (ArgumentNullException)
+                {
+                    Console.WriteLine("Method not found");
+                }
+            }
+            else
+            {
+                   Console.WriteLine( "Constructor Not Found");
+                
+            }
+            return default;
         }
     }
 }
