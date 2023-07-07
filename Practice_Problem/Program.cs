@@ -14,6 +14,8 @@ namespace Practice_Problem
             int n= Convert.ToInt32(Console.ReadLine());
             NearestNumber nearestNumber = new NearestNumber();
             nearestNumber.CheckNum(n);
+            Reflection reflection = new Reflection();
+            reflection.Test();
         }
         
      

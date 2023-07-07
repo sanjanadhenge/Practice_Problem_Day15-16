@@ -9,6 +9,7 @@ namespace Practice_Problem
 {
     internal class NearestNumber
     {
+        public NearestNumber() { }  
         List<int> list = new List<int>() { 11,16,25,32,14,20};
         List<int> number = new List<int>();
         public void CheckNum(int n)
