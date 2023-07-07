@@ -10,6 +10,7 @@ namespace Practice_Problem
 {
     internal class Reflection
     {
+       
         public  void Test()
         {
             Type type = Type.GetType("Practice_Problem.NearestNumber");
@@ -33,6 +34,23 @@ namespace Practice_Problem
             {
                 Console.WriteLine(constructors.ToString());
             }
+        }
+        public static string InvokeMethod(string message, string methodName)
+        {
+            
+            try
+            {
+                Type type = Type.GetType("Mood_Analayzer.MoodAnalyze");
+                object moodAnalyze = CreateObjectUsingParameterizedConstructor("Practice_Problem.NearestNumber", "NearestNumber", n);
+                MethodInfo methodInfo = type.GetMethod(methodName);
+                object mood = methodInfo.Invoke(moodAnalyze, null);
+                return mood.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("Method not found");
+            }
+            return default;
         }
         public  object CreateObjectUsingParameterizedConstructor(string className, string constructorName, int num)
         {
