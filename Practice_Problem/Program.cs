@@ -18,6 +18,7 @@ namespace Practice_Problem
             reflection.Test();
             object expected = new NearestNumber();
             object obj =reflection.CreateObj("Practice_Problem.NearestNumber", "NearestNumber");
+            object obj2 = reflection.CreateObjectUsingParameterizedConstructor("Practice_Problem.NearestNumber", "NearestNumber", n);
         }
         
      

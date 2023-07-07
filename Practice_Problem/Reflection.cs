@@ -34,6 +34,30 @@ namespace Practice_Problem
                 Console.WriteLine(constructors.ToString());
             }
         }
+        public  object CreateObjectUsingParameterizedConstructor(string className, string constructorName, int num)
+        {
+            Type type = typeof(NearestNumber);
+            if (type.Name.Equals(className) || type.FullName.Equals(className))
+            {
+                if (type.Name.Equals(constructorName))
+                {
+                    ConstructorInfo ctor = type.GetConstructor(new Type[] { typeof(string) });
+                    object instance = ctor.Invoke(new object[] { "HAPPY" });
+                    return instance;
+
+                }
+                else
+                {
+                  Console.WriteLine("Constructor Not Found");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Class Not Found");
+            }
+
+            return default;
+        }
         public  object CreateObj(string className, string constructorName)
         {
             string pattern = @"." + constructorName + "$";
